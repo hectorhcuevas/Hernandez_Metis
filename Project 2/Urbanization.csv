@@ -1,0 +1,231 @@
+country,Urban_Population,Urbanization_Rate
+Monaco,100,0.79
+Nauru,100,0.19
+Singapore,100,2.02
+Vatican City,100,0.03
+Anguilla,100,1.19
+Bermuda,100,0.19
+Cayman Islands,100,1.54
+Gibraltar,100,0.07
+Hong Kong,100,0.74
+Macau,100,1.78
+Sint Maarten,100,1.97
+Qatar,99.2,6.02
+Kuwait,98.3,3.63
+Belgium,97.9,0.48
+Malta,95.4,0.46
+U.S. Virgin Islands,95.3,0.25
+Uruguay,95.3,0.53
+Guam,94.5,1.36
+San Marino,94.2,0.62
+Iceland,94.1,1.25
+Puerto Rico,93.6,-0.21
+Japan,93.5,0.56
+Turks and Caicos Islands,92.2,2.48
+Israel,92.1,1.37
+Argentina,91.8,1.04
+Netherlands,90.5,1.05
+Saint Pierre and Miquelon,90.4,0.1
+Luxembourg,90.2,1.71
+Chile,89.5,1.09
+Curacao,89.3,2.04
+Australia,89.4,1.47
+Northern Mariana Islands,89.2,0.39
+Venezuela,89,1.54
+Bahrain,88.8,1.71
+Lebanon,87.8,3.18
+Denmark,87.7,0.6
+American Samoa,87.2,-0.13
+Gabon,87.2,2.7
+Palau,87.1,1.66
+Greenland,86.4,0.74
+New Zealand,86.3,1.05
+Sweden,85.8,0.83
+Brazil,85.7,1.17
+United Arab Emirates,85.5,2.87
+Andorra,85.1,0.14
+Finland,84.2,0.8
+Jordan,83.7,3.79
+Saudi Arabia,83.1,2.1
+Bahamas,82.9,1.53
+United Kingdom,82.6,0.88
+South Korea,82.5,0.66
+United States,81.6,1.02
+Canada,81.8,1.22
+Western Sahara,80.9,3.27
+Norway,80.5,1.35
+Spain,79.6,0.52
+France,79.5,0.84
+Mexico,79.2,1.57
+Dominican Republic,79,2.6
+Libya,78.6,1.13
+Peru,78.6,1.69
+Greece,78,0.47
+Taiwan,78,
+Oman,77.6,8.54
+Djibouti,77.3,1.6
+Brunei,77.2,0.1
+Cuba,77.1,0.07
+Costa Rica,76.8,2.74
+Belarus,76.7,0.05
+Colombia,76.4,1.66
+Falkland Islands,76.2,0.96
+Germany,75.3,0.16
+Palestine,75.3,2.81
+Malaysia,74.7,2.66
+Cook Islands,74.5,0.88
+Russia,74,-0.13
+Bulgaria,73.9,-0.31
+Switzerland,73.9,1.88
+Iran,73.4,2.07
+Turkey,73.4,1.97
+Czech Republic,73,0.35
+Marshall Islands,72.7,0.59
+Mongolia,72,2.78
+Hungary,71.2,0.47
+Algeria,70.7,2.77
+New Caledonia,70.2,2.17
+Ukraine,69.7,-0.33
+Dominica,69.5,0.84
+Iraq,69.5,3.01
+Italy,69,0.39
+Bolivia,68.5,2.26
+Estonia,67.5,-0.45
+Latvia,67.4,-0.67
+Cyprus,66.9,0.89
+Tunisia,66.8,1.38
+El Salvador,66.7,1.4
+Lithuania,66.5,-0.53
+Panama,66.1,2.07
+Austria,66,0.4
+Suriname,66,0.78
+Cape Verde,65.5,1.99
+Republic of the Congo,65.4,3.22
+Sao Tome and Principe,65.1,3.58
+South Africa,64.8,1.59
+Montenegro,64,0.34
+Ecuador,63.7,1.9
+Portugal,63.5,0.97
+Ireland,63.2,1.58
+Armenia,62.7,-0.11
+North Korea,60.9,0.75
+Poland,60.5,-0.1
+Morocco,60.2,2.26
+Mauritania,59.9,3.54
+Paraguay,59.7,2.1
+Tuvalu,59.7,1.9
+Gambia,59.6,4.33
+Croatia,59,0.11
+Nicaragua,58.8,1.96
+Haiti,58.6,3.78
+Syria,57.7,1.37
+Albania,57.4,2.21
+Botswana,57.4,1.29
+Macedonia,57.1,0.11
+French Polynesia,55.9,0.85
+China,55.6,3.05
+Serbia,55.6,-0.34
+Jamaica,54.8,0.9
+Honduras,54.7,3.14
+Azerbaijan,54.6,1.56
+Romania,54.6,0.01
+Cameroon,54.4,3.6
+Cote d'Ivoire,54.2,3.69
+Ghana,54,3.4
+World,54,2.05
+Seychelles,53.9,1.14
+Fiji,53.7,1.45
+Indonesia,53.7,2.69
+Georgia,53.6,-0.1
+Slovakia,53.6,-0.31
+Kazakhstan,53.2,0.86
+Isle of Man,52.1,0.8
+Guatemala,51.6,3.4
+Saint Vincent and the Grenadines,50.6,0.72
+Thailand,50.4,2.97
+Turkmenistan,50,1.94
+Liberia,49.7,3.36
+Slovenia,49.6,0.08
+Guinea-Bissau,49.3,4.13
+Nigeria,47.8,4.66
+Namibia,46.7,4.16
+British Virgin Islands,46.2,1.8
+Maldives,45.5,4.49
+Moldova,45,-0.73
+Philippines,44.4,1.32
+Kiribati,44.3,1.78
+Angola,44,4.97
+Belize,44,1.93
+Benin,44,3.67
+Senegal,43.7,3.59
+Egypt,43.1,1.68
+Democratic Republic of the Congo,42.5,3.96
+Niue,42.5,-0.94
+Faroe Islands,42,0.47
+Aruba,41.5,-0.28
+Zambia,40.9,4.32
+Central African Republic,40,2.59
+Togo,40,3.83
+Equatorial Guinea,39.9,3.12
+Mali,39.9,5.08
+Sierra Leone,39.9,2.75
+Bosnia and Herzegovina,39.8,0.14
+Mauritius,39.7,-0.08
+Somalia,39.6,4.06
+Saint Helena,39.4,-0.59
+Pakistan,38.8,2.81
+Bhutan,38.6,3.69
+Laos,38.6,4.93
+Guinea,37.2,3.82
+Uzbekistan,36.4,1.45
+Kyrgyzstan,35.7,1.58
+Grenada,35.6,0.33
+Madagascar,35.1,4.59
+Yemen,34.6,4.03
+Bangladesh,34.3,3.55
+Myanmar,34.1,2.49
+Sudan,33.8,2.54
+Vietnam,33.6,2.95
+Timor-Leste,32.8,3.75
+India,32.7,2.38
+Zimbabwe,32.4,2.3
+Mozambique,32.2,3.27
+Saint Kitts and Nevis,32,1.27
+Tanzania,31.6,5.36
+Barbados,31.5,0.13
+Guernsey,31.4,0.76
+Jersey,31.4,0.76
+Burkina Faso,29.9,5.87
+Rwanda,28.8,6.43
+Guyana,28.6,0.76
+Comoros,28.3,2.67
+Lesotho,27.3,3.05
+Tajikistan,26.8,2.62
+Afghanistan,26.7,3.96
+Vanuatu,26.1,3.42
+Kenya,25.6,4.34
+Antigua and Barbuda,23.8,-0.95
+Tonga,23.7,0.71
+Eritrea,22.6,5.1
+Chad,22.5,2.42
+Federated States of Micronesia,22.4,0.27
+Solomon Islands,22.3,4.25
+Swaziland,21.3,1.32
+Cambodia,20.7,2.65
+Ethiopia,19.5,4.89
+Samoa,19.1,-0.24
+South Sudan,18.8,5.05
+Niger,18.7,5.14
+Nepal,18.6,3.18
+Saint Lucia,18.5,0.89
+Sri Lanka,18.4,0.72
+Malawi,16.3,3.77
+Uganda,16.1,5.43
+Liechtenstein,14.3,0.48
+Papua New Guinea,13,2.12
+Burundi,12.1,5.66
+Montserrat,9,0.65
+Trinidad and Tobago,8.4,-1.2
+Wallis and Futuna,0,0
+Tokelau,0,0
+Pitcairn Islands,0,N/A

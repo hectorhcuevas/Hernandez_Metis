@@ -1,0 +1,189 @@
+country,Agriculture,Industry,Service
+World,36.6,21.4,41.9
+China,38.1,27.8,34.1
+India,52,14,34
+European Union,4.7,28.7,66.6
+United States,0.7,20.3,79.1
+Indonesia,38.3,12.8,48.9
+Brazil,20,14,66
+Bangladesh,45,30,25
+Russia,9.8,27.5,62.7
+Japan,3.9,26.2,69.8
+Pakistan,43,20.3,36.6
+Nigeria,70,10,20
+Vietnam,53.9,20.3,25.8
+Mexico,13.7,23.4,62.9
+Germany,2.4,29.7,67.8
+Philippines,33,15,52
+Thailand,42.4,19.7,37.9
+Ethiopia,85,5,10
+United Kingdom,1.4,18.2,80.4
+Burma,70,7,23
+France,3.8,24.3,71.8
+Egypt,32,17,51
+Turkey,25.5,26.2,48.4
+Iran,25,31,45
+Italy,4.2,30.7,65.1
+South Korea,7,23.6,69.4
+Spain,4.2,24,71.7
+Tanzania,80,20,20
+Ukraine,15.8,18.5,65.7
+Colombia,18,13,68
+North Korea,35,65,65
+Canada,2,15,83
+Nepal,75,7,18
+Kenya,75,65,65
+South Africa,9,26,65
+Poland,17.4,29.2,53.4
+Argentina,5,23,72
+Uzbekistan,44,20,36
+Uganda,82,5,13
+Afghanistan,78.6,5.7,15.7
+Venezuela,13,23,64
+Sudan,80,7,13
+Morocco,44.6,19.8,35.5
+Australia,3.6,21.1,75
+Malaysia,13,36,51
+Taiwan,5.2,35.9,58.8
+Ghana,56,15,29
+Peru,0.7,23.8,75.5
+Mozambique,81,6,13
+Algeria,14,13.4,72.6
+Romania,29.7,23.2,47.1
+Kazakhstan,28.2,18.2,53.6
+Cambodia,57.6,15.9,26.5
+Netherlands,2,18,80
+Iraq,21.6,18.7,59.8
+Sri Lanka,32.7,24.2,43.1
+Angola,85,15,15
+Côte d'Ivoire,68,0,0
+Chile,13.2,23,63.9
+Cameroon,70,13,17
+Saudi Arabia,6.7,21.4,71.9
+Burkina Faso,90,10,10
+Syria,17,16,67
+Malawi,90,10,10
+Portugal,11.7,28.5,59.8
+Senegal,77.5,22.5,22.5
+Zambia,85,6,9
+Czech Republic,3.1,38.6,58.3
+Belgium,2,25,73
+Greece,12.4,22.4,65.1
+Cuba,20,19.4,60.6
+Sweden,1.1,28.2,70.7
+Belarus,14,34.7,51.3
+Ecuador,8.3,21.2,70.4
+Niger,90,6,4
+Bolivia,40,17,43
+Rwanda,90,10,10
+Dominican Republic,14.6,22.3,63.1
+Guinea,76,24,24
+Azerbaijan,38.3,12.1,49.6
+Chad,80,20,20
+Burundi,93.6,2.3,4.1
+Hungary,4.7,30.9,64.4
+Guatemala,50,15,35
+Switzerland,3.4,23.4,73.2
+Zimbabwe,66,10,24
+Tunisia,25.5,26.2,48.4
+Papua New Guinea,85,0,0
+Austria,5.5,27.5,67
+Hong Kong,0,4.7,95.3
+Haiti,38.1,11.5,50.4
+Somalia,71,29,29
+Mali,80,20,20
+Bulgaria,7.1,35.2,57.7
+United Arab Emirates,7,15,78
+Honduras,39.2,20.9,39.8
+Singapore,0.1,30.2,69.7
+Israel,2,16,82
+Paraguay,26.5,18.5,55
+Serbia,23.9,20.5,55.6
+El Salvador,19,23,58
+Denmark,2.5,20.2,77.3
+Kyrgyzstan,48,12.5,39.5
+Norway,2.9,21.1,76
+Finland,4.9,16.7,78.4
+Nicaragua,28,19,53
+Ireland,5,20,76
+New Zealand,7,19,74
+Slovakia,3.5,27,69.4
+Tajikistan,49.8,12.8,37.4
+Turkmenistan,48.2,14,37.8
+Georgia,55.6,8.9,35.5
+Costa Rica,14,22,64
+Libya,17,23,59
+Croatia,5,31.3,63.6
+Uruguay,13,14,73
+Jordan,2.7,20,77.4
+Lithuania,14,29.1,56.9
+Panama,17.6,8.8,73.6
+Moldova,40.6,16,43.3
+Togo,65,5,30
+Puerto Rico,2.1,19,79
+Jamaica,17,19,64
+Armenia,46.2,15.6,38.2
+Bosnia and Herzegovina,18,31.3,50.8
+Latvia,12.1,25.8,61.8
+Albania,47.8,23,29.2
+Mongolia,34,5,61
+Slovenia,2.2,35,62.8
+Macedonia,19.9,22.1,58
+Lesotho,86,14,14
+Mauritania,50,10,40
+Estonia,2.8,22.7,74.5
+Namibia,16.3,22.4,61.3
+Trinidad and Tobago,3.8,12.8,83.4
+West Bank,16.1,28.4,55.5
+Gabon,60,15,25
+Mauritius,9,30,61
+Guinea-Bissau,82,18,18
+Bahrain,1,79,20
+Cyprus,8.5,20.5,71
+Gambia,75,19,6
+Macau,0,4.3,95.7
+Gaza Strip,5.1,15.6,79.3
+Montenegro,2,30,68
+Solomon Islands,75,5,20
+Luxembourg,2.2,17.2,80.6
+Brunei,4.2,62.8,33
+Bahamas,5,5,90
+Malta,1.3,24.8,73.9
+Iceland,4.8,22.2,73
+Suriname,8,14,78
+Comoros,80,20,20
+Barbados,10,15,75
+Fiji,70,30,30
+French Polynesia,13,19,68
+Netherlands Antilles,1,15,84
+New Caledonia,20,20,60
+Vanuatu,65,5,30
+Guam,26,10,64
+U.S. Virgin Islands,1,19,80
+Saint Lucia,21.7,24.7,53.6
+Grenada,24,14,62
+Andorra,0.4,4.7,94.9
+Saint Vincent and the Grenadines,26,17,57
+Isle of Man,2,6,92
+Seychelles,3,23,74
+Bermuda,3,17,80
+Tonga,65,5,30
+Greenland,4.9,31.9,63.2
+Liechtenstein,1.5,43.5,55
+Antigua and Barbuda,7,11,82
+Dominica,40,32,28
+Faroe Islands,10.2,20.5,69.2
+Cayman Islands,1.9,19.1,79
+San Marino,0.2,36.3,63.5
+American Samoa,34,33,33
+Marshall Islands,21.4,20.9,57.7
+British Virgin Islands,0.6,40,59.4
+Gibraltar,0,40,60
+Kiribati,2.7,32,65.3
+Cook Islands,29,15,56
+Anguilla,4,3,92
+Turks and Caicos Islands,20,0,33
+Saint Pierre and Miquelon,18,41,41
+Wallis and Futuna,80,4,16
+Saint Helena,6,48,46
+Falkland Islands,95,5,5
