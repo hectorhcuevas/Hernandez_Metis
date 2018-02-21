@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pie Chart</title>
+
+<!-- JavaScript Libraries //-->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<!-- CSS Style //-->
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+    <div style="margin:75px;"  id="chart"></div>
+</body>
+<script>
+    var inputData = [{label:"Carbohydrates",value:946.86},{label:"Protein",value:296.13},{label:"Fat",value:650.73}];
+
+    var colorScheme = ["#5676d1","#5ed156","#d15656"];
+    renderPieChart(inputData,"#chart",colorScheme);
+</script>
+</html>

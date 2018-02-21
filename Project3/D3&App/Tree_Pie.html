@@ -1,0 +1,527 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pie Chart</title>
+
+<!-- JavaScript Libraries //-->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<!-- CSS Style //-->
+    <style>
+      #chart {                                                          /* NEW */
+        height: 360px;                                                  /* NEW */
+        position: relative;                                             /* NEW */
+        width: 360px;                                                   /* NEW */
+      }                                                                 /* NEW */
+      .tooltip {                                                        /* NEW */
+        background: #eee;                                               /* NEW */
+        box-shadow: 0 0 5px #999999;                                    /* NEW */
+        color: #333;                                                    /* NEW */
+        display: none;                                                  /* NEW */
+        font-size: 12px;                                                /* NEW */
+        left: 130px;                                                    /* NEW */
+        padding: 10px;                                                  /* NEW */
+        position: absolute;                                             /* NEW */
+        text-align: center;                                             /* NEW */
+        top: 95px;                                                      /* NEW */
+        width: 80px;                                                    /* NEW */
+        z-index: 10;                                                    /* NEW */
+      }                                                                 /* NEW */
+      .legend {
+        font-size: 12px;
+      }
+      rect {
+        stroke-width: 2;
+      }
+    </style>
+</head>
+
+<body>
+    <div style="margin:75px;"  id="chart"></div>
+</body>
+<script>
+  /// PIE 1 
+    var inputData = [{label:"Carbs",value:946.86},{label:"Protein",value:296.13},{label:"Fat",value:650.73}];
+
+    var colorScheme = ["#5676d1","#5ed156","#d15656"];
+    renderPieChart(inputData,"#chart",colorScheme);
+
+    function renderPieChart (dataset,dom_element_to_append_to, colorScheme){
+
+    var margin = {top:50,bottom:50,left:50,right:50};
+    var width = 500 - margin.left - margin.right,
+    height = width,
+    radius = Math.min(width, height) / 2;
+    var donutWidth = 75;
+    var legendRectSize = 18;
+    var legendSpacing = 4;
+
+    dataset.forEach(function(item){
+      item.enabled = true;
+    });
+
+    var color = d3.scale.ordinal()
+    .range(colorScheme);
+
+    var svg = d3.select(dom_element_to_append_to)
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+    var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - donutWidth);
+
+    var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.value; });
+
+    var tooltip = d3.select(dom_element_to_append_to)
+    .append('div')
+    .attr('class', 'tooltip');
+
+
+
+     tooltip.append('div')
+    .attr('class', 'label');
+
+    tooltip.append('div')
+    .attr('class', 'count');
+
+    tooltip.append('div')
+    .attr('class', 'percent');
+
+    var path = svg.selectAll('path')
+    .data(pie(dataset))
+    .enter()
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', function(d, i) {
+      return color(d.data.label);
+    })
+    .each(function(d) { this._current = d; });
+
+
+    path.on('mouseover', function(d) {
+      var total = d3.sum(dataset.map(function(d) {
+        return (d.enabled) ? d.value : 0;
+      }));
+
+      var percent = Math.round(1000 * d.data.value / total) / 10;
+      tooltip.select('.label').html(d.data.label.toUpperCase()).style('color','black');
+      tooltip.select('.count').html(d.data.value);
+      tooltip.select('.percent').html(percent + '%');
+
+      tooltip.style('display', 'block');
+      tooltip.style('opacity',2);
+
+    });
+
+
+    path.on('mousemove', function(d) {
+      tooltip.style('top', (d3.event.layerY + 10) + 'px')
+      .style('left', (d3.event.layerX - 25) + 'px');
+    });
+
+    path.on('mouseout', function() {
+      tooltip.style('display', 'none');
+      tooltip.style('opacity',0);
+    });
+
+    var legend = svg.selectAll('.legend')
+    .data(color.domain())
+    .enter()
+    .append('g')
+    .attr('class', 'legend')
+    .attr('transform', function(d, i) {
+      var height = legendRectSize + legendSpacing;
+      var offset =  height * color.domain().length / 2;
+      var horz = -2 * legendRectSize;
+      var vert = i * height - offset;
+      return 'translate(' + horz + ',' + vert + ')';
+    });
+
+    legend.append('rect')
+    .attr('width', legendRectSize)
+    .attr('height', legendRectSize)
+    .style('fill', color)
+    .style('stroke', color)
+    .on('click', function(label) {
+      var rect = d3.select(this);
+      var enabled = true;
+      var totalEnabled = d3.sum(dataset.map(function(d) {
+        return (d.enabled) ? 1 : 0;
+      }));
+
+      if (rect.attr('class') === 'disabled') {
+        rect.attr('class', '');
+      } else {
+        if (totalEnabled < 2) return;
+        rect.attr('class', 'disabled');
+        enabled = false;
+      }
+
+      pie.value(function(d) {
+        if (d.label === label) d.enabled = enabled;
+        return (d.enabled) ? d.value : 0;
+      });
+
+      path = path.data(pie(dataset));
+
+      path.transition()
+      .duration(750)
+      .attrTween('d', function(d) {
+        var interpolate = d3.interpolate(this._current, d);
+        this._current = interpolate(0);
+        return function(t) {
+          return arc(interpolate(t));
+        };
+      });
+    });
+
+
+    legend.append('text')
+    .attr('x', legendRectSize + legendSpacing)
+    .attr('y', legendRectSize - legendSpacing)
+    .text(function(d) { return d; })
+  };
+
+
+
+    /// PIE 2 
+var inputData2 = [{label:"Carbs",value:800},{label:"Protein",value:600},{label:"Fat",value:600}];
+
+    var colorScheme = ["#5676d1","#5ed156","#d15656"];
+    renderPieChart(inputData2,"#chart",colorScheme);
+
+    function renderPieChart (dataset,dom_element_to_append_to2, colorScheme){
+
+    var margin = {top:50,bottom:50,left:50,right:50};
+    var width = 500 - margin.left - margin.right,
+    height = width,
+    radius = Math.min(width, height) / 2;
+    var donutWidth = 75;
+    var legendRectSize = 18;
+    var legendSpacing = 4;
+
+    dataset.forEach(function(item){
+      item.enabled = true;
+    });
+
+    var color = d3.scale.ordinal()
+    .range(colorScheme);
+
+    var svg = d3.select(dom_element_to_append_to2)
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var text = svg.selectAll("text")
+      .attr('x', width / 2 )
+      .attr('y', height / 2 )
+      .text("This is Where Text Goes!");
+
+    var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - donutWidth);
+
+    var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.value; });
+
+    var tooltip2 = d3.select(dom_element_to_append_to2)
+    .append('div')
+    .attr('class', 'tooltip');
+
+    tooltip2.append('div')
+    .attr('class', 'label');
+
+    tooltip2.append('div')
+    .attr('class', 'count');
+
+    tooltip2.append('div')
+    .attr('class', 'percent');
+
+    var path2 = svg.selectAll('path')
+    .data(pie(dataset))
+    .enter()
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', function(d, i) {
+      return color(d.data.label);
+    })
+    .each(function(d) { this._current = d; });
+
+
+    path2.on('mouseover', function(d) {
+      var total = d3.sum(dataset.map(function(d) {
+        return (d.enabled) ? d.value : 0;
+      }));
+
+      var percent = Math.round(1000 * d.data.value / total) / 10;
+      tooltip2.select('.label').html(d.data.label.toUpperCase()).style('color','black');
+      tooltip2.select('.count').html(d.data.value);
+      tooltip2.select('.percent').html(percent + '%');
+
+      tooltip2.style('display', 'block');
+      tooltip2.style('opacity',2);
+
+    });
+
+
+ //   path2.on('mousemove', function(d) {
+ //     tooltip2.style('top', (d3.event.layerY + 10) + 'px')
+ //     .style('left', (d3.event.layerX - 25) + 'px');
+ //   });
+
+    path2.on('mouseout', function() {
+      tooltip2.style('display', 'none');
+      tooltip2.style('opacity',0);
+    });
+
+    var legend = svg.selectAll('.legend')
+    .data(color.domain())
+    .enter()
+    .append('g')
+    .attr('class', 'legend')
+    .attr('transform', function(d, i) {
+      var height = legendRectSize + legendSpacing;
+      var offset =  height * color.domain().length / 2;
+      var horz = -2 * legendRectSize;
+      var vert = i * height - offset;
+      return 'translate(' + horz + ',' + vert + ')';
+    });
+
+    legend.append('rect')
+    .attr('width', legendRectSize)
+    .attr('height', legendRectSize)
+    .style('fill', color)
+    .style('stroke', color)
+    .on('click', function(label) {
+      var rect = d3.select(this);
+      var enabled = true;
+      var totalEnabled = d3.sum(dataset.map(function(d) {
+        return (d.enabled) ? 1 : 0;
+      }));
+
+      if (rect.attr('class') === 'disabled') {
+        rect.attr('class', '');
+      } else {
+        if (totalEnabled < 2) return;
+        rect.attr('class', 'disabled');
+        enabled = false;
+      }
+
+      pie.value(function(d) {
+        if (d.label === label) d.enabled = enabled;
+        return (d.enabled) ? d.value : 0;
+      });
+
+      path2 = path2.data(pie(dataset));
+
+      path2.transition()
+      .duration(750)
+      .attrTween('d', function(d) {
+        var interpolate = d3.interpolate(this._current, d);
+        this._current = interpolate(0);
+        return function(t) {
+          return arc(interpolate(t));
+        };
+      });
+    });
+
+
+    legend.append('text')
+    .attr('x', legendRectSize + legendSpacing)
+    .attr('y', legendRectSize - legendSpacing)
+    .text(function(d) { return d; })
+  };
+</script>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 500, right: 120, bottom: 20, left: 200},
+    width = 1960 - margin.right - margin.left,
+    height = 800 - margin.top - margin.bottom;
+
+var i = 0,
+    duration = 750,
+    root;
+
+var tree = d3.layout.tree()
+    .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("rf_tree.json", function(error, flare) {
+  if (error) throw error;
+
+  root = flare;
+  root.x0 = height / 2;
+  root.y0 = 0;
+
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  root.children.forEach(collapse);
+  update(root);
+});
+
+d3.select(self.frameElement).style("height", "800px");
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+      links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .on("click", click);
+
+  nodeEnter.append("circle")
+      .attr("r", 1e-6)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("text")
+      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .text(function(d) { return d.name; })
+      .style("fill-opacity", 1e-6);
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", 4.5)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+      .attr("r", 1e-6);
+
+  nodeExit.select("text")
+      .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+      .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      });
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
+}
+
+</script>
+</html>
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width/2]).padding(0.4),
+    y = d3.scaleLinear().rangeRound([height, 0]);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//d3.csv("SortedOdds.csv", function(d) {
+ // d.Odds = +d.Odds;
+  //return d;
+//}, function(error, data) {
+//  if (error) throw error;
+
+var data = [{Feature:"DailyFats(g)",Odds:4.534611},{Feature:"$/MonthEatingOut",Odds:4.206975},
+            {Feature:"BMI",Odds:2.151813},{Feature:"DailyCarbs(g)",Odds:1.560350},
+            {Feature:"SleepDisorder(Y/N)",Odds:1.180334},{Feature:"Edu:SomeHighSchool",Odds:1.129977},
+            {Feature:"Married",Odds:1.110663},{Feature:"Mexican-American",Odds:1.091617},
+            {Feature:"ForeignBorn",Odds:1.089010},{Feature:"Daily Hrs of TV",Odds:1.083574}];
+function type(d) {
+    d.Odds = +d.Odds;
+    return d;
+}
+
+
+  x.domain(data.map(function(d) { return d.Feature; }));
+  y.domain([0, d3.max(data, function(d) { return d.Odds; })]);
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+    //  .attr("transform", "rotate(45)");
+
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Frequency");
+
+  g.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.Feature); })
+      .attr("y", function(d) { return y(d.Odds); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Odds); });
+  function type(d) {
+    d.Odds = +d.Odds;
+    return d;
+}
+
+</script>
